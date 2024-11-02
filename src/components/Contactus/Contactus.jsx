@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { db } from '../../firebase/firebaseConfig';
+import { db } from '../../firebase/firebaseConfig'; // Adjust the path to your firebaseConfig
 import { collection, addDoc } from 'firebase/firestore';
 import './Contactus.css';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { useSnackbar } from 'notistack'; // Import useSnackbar from notistack
 
 const Contactus = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +13,7 @@ const Contactus = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { enqueueSnackbar } = useSnackbar(); // Hook to access the snackbar
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -30,13 +30,12 @@ const Contactus = () => {
     try {
       const contactsCollection = collection(db, 'contacts');
       await addDoc(contactsCollection, formData);
-      toast.success("Message Sent Successfully!");
+      enqueueSnackbar("Message Sent Successfully!", { variant: 'success' }); // Show success message
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
       console.error('Error adding document: ', error.message);
-      toast.error('Error sending message: ' + error.message);
-      toast.error('Error sending message');
-    } finally{
+      enqueueSnackbar('Error sending message: ' + error.message, { variant: 'error' }); // Show error message
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -85,7 +84,6 @@ const Contactus = () => {
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>
       </form>
-      <ToastContainer />
     </div>
   );
 };

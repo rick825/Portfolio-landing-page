@@ -1,49 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaHome, FaServicestack, FaInfoCircle, FaCommentDots, FaPhone } from 'react-icons/fa';
 import './Header.css';
 
 const Header = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector('.navbar');
+      const logo = document.querySelector('.navlogo');
 
-  window.onscroll = () => {
-    const header = document.querySelector('.navbar');
-    if (window.scrollY > 100) {
-      header.classList.add('active');
-    } else {
-      header.classList.remove('active');
-    }
+      if (header && logo) { // Check if elements exist
+        if (window.scrollY > 100) {
+          header.classList.add('active');
+          logo.classList.add('logoactive');
+        } else {
+          header.classList.remove('active');
+          logo.classList.remove('logoactive');
+        }
+      }
+    };
 
-    const logo = document.querySelector('.navlogo');
-    if(window.scrollY > 100){
-       logo.classList.add('logoactive');
-    }else{
-      logo.classList.remove('logoactive');
-    }
-  };
+    window.addEventListener('scroll', handleScroll); // Use event listener
 
-  const handleNavigation = () =>{
+    return () => {
+      window.removeEventListener('scroll', handleScroll); // Clean up on unmount
+    };
+  }, []); // Empty dependency array means this runs once on mount and unmount
+
+  const handleNavigation = () => {
     const navLinks = document.querySelector('.nav-links');
     const backblack = document.querySelector('.backblack');
     const contact = document.querySelector('.contact');
     const logo = document.querySelector('.navlogo');
     const navbar = document.querySelector('.navbar');
 
-    navLinks.classList.toggle('navactive');
-    backblack.classList.toggle('navactive');
-    contact.classList.toggle('navactive');
-    logo.classList.toggle('logoactive');
-    navbar.classList.toggle('navbaractive');
-  }
+    if (navLinks && backblack && contact && logo && navbar) { // Check if elements exist
+      navLinks.classList.toggle('navactive');
+      backblack.classList.toggle('navactive');
+      contact.classList.toggle('navactive');
+      logo.classList.toggle('logoactive');
+      navbar.classList.toggle('navbaractive');
+    }
+  };
 
   return (
     <div className='header'>
       <div className="backblack"></div>
-         <nav className="navbar">
-          <div className="ham" onClick={handleNavigation}>
-          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAVUlEQVR4nO3WsQkAMAwDQY2evV04YxjEHXwfk0YJABdm5jWUmdmGcv0Ah0zxj7yGAgDEjN/rbTXNo3EbStMhr6EAADHj93pbTfNo3IbSdMhrKADkwAfNVkOwdaBILgAAAABJRU5ErkJggg==" alt="menu--v1" /> 
-          </div>
-          <div className="navlogo">
-            <h2>Thesky.web</h2>
-          </div>
+      <nav className="navbar">
+        <div className="ham" onClick={handleNavigation}>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAVUlEQVR4nO3WsQkAMAwDQY2evV04YxjEHXwfk0YJABdm5jWUmdmGcv0Ah0zxj7yGAgDEjN/rbTXNo3EbStMhr6EAADHj93pbTfNo3IbSdMhrKADkwAfNVkOwdaBILgAAAABJRU5ErkJggg==" alt="menu--v1" />
+        </div>
+        <div className="navlogo">
+          <h2>Thesky.web</h2>
+        </div>
         <ul className="nav-links">
           <li><a href="/"><FaHome /> Home</a></li>
           <li><a href="#services"><FaServicestack /> Services</a></li>
@@ -63,7 +71,7 @@ const Header = () => {
         </div>
       </nav>
     </div>
-  )
+  );
 }
 
 export default Header;

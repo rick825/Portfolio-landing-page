@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { db } from '../../firebase/firebaseConfig'; // Adjust the path to your firebaseConfig
 import { collection, addDoc } from 'firebase/firestore';
 import './Footer.css';
-import { toast, ToastContainer } from 'react-toastify'; // Import Toast for notifications
-import 'react-toastify/dist/ReactToastify.css';
+import { useSnackbar } from 'notistack'; // Import useSnackbar from notistack
 
 const Footer = () => {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { enqueueSnackbar } = useSnackbar(); // Hook to access the snackbar
 
   const handleChange = (e) => {
     setEmail(e.target.value);
@@ -20,11 +20,11 @@ const Footer = () => {
     try {
       const subscribersCollection = collection(db, 'subscribers'); 
       await addDoc(subscribersCollection, { email });
-      toast.success("Subscription successful!"); 
+      enqueueSnackbar("Subscription successful!", { variant: 'success' }); // Show success message
       setEmail(''); 
     } catch (error) {
       console.error('Error adding document: ', error);
-      toast.error('Subscription failed. Please try again.');
+      enqueueSnackbar('Subscription failed. Please try again.', { variant: 'error' }); // Show error message
     } finally {
       setIsSubmitting(false); 
     }
@@ -32,7 +32,6 @@ const Footer = () => {
 
   return (
     <footer className="footer-section">
-      <ToastContainer /> 
       <div className="footer-content">
         <h2 className="footer-title">Stay Connected</h2>
         <p className="footer-description">Subscribe to our newsletter for the latest updates and offers.</p>
