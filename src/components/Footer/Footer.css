@@ -1,0 +1,80 @@
+.footer-section {
+    background-color: #ece8f4; /* Light purple background */
+    padding: 3rem 1rem;
+    text-align: center;
+
+}
+
+.footer-content {
+    max-width: 600px;
+    margin: auto;
+}
+
+.footer-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: #333; /* Darker purple */
+}
+
+.footer-description {
+    font-size: 1.4rem;
+    color: #555;
+    margin-bottom: 1.5rem;
+}
+
+.footer-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.footer-input {
+    padding: 0.7rem 1rem;
+    border: 1px solid #5E35B1;
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+.footer-button {
+    padding: 0.7rem 1.5rem;
+    background-color: #5E35B1; /* Darker purple */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.footer-button:hover {
+    background-color: #4527A0; /* Darker shade for hover */
+}
+
+.footer-links {
+    margin: 1.5rem 0;
+}
+
+.footer-link {
+    margin: 0 1rem;
+    color: #5E35B1; /* Darker purple for links */
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 1.1rem;
+}
+
+.footer-link:hover {
+    color: #4527A0; /* Darker shade for hover */
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 1rem;
+    margin-top: 1.5rem;
+}
+
+.footer-copy {
+    font-size: 0.9rem;
+    color: #777;
+}

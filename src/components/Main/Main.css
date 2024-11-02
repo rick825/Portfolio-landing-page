@@ -1,0 +1,96 @@
+
+.main{
+    display: flex;
+    /* margin-top: 10rem; */
+    padding-top: 10rem;
+}
+
+.main .maincont{
+    width: 50%;
+    height: 65rem;
+    /* border: 1px solid white; */
+}
+
+.main .mainleft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+ .mainleft .mainhead{
+    width: 70%;
+    margin-top: -10rem;
+}
+
+.mainleft .mainhead h1{
+  font-size: 5rem;
+  letter-spacing: 2px;
+}
+
+.mainleft .mainhead p{
+    font-size: 1.4rem;
+    margin-top: 2rem;
+    line-height: 2.6rem;
+}
+
+.mainbtn{
+    display: flex;
+    gap: 1rem;
+}
+
+.mainbtn .btn{
+    padding: 1.02rem 3rem;
+    margin-top: 2.5rem;
+    border-radius: 6px;
+    border: none;
+    font-size: 1.4rem;
+}
+
+
+.btn-primary{
+    color: white;
+    background-color: #6a1387;
+}
+
+
+.mainright{
+    position: relative;
+}
+
+.mainright img{
+    width: 55%;
+    position: absolute;
+
+}
+
+.mainright .img1{
+    top:10%;
+    left: 5%;
+    width: 60%;
+}
+
+.img2{
+  top:45%;
+  left: 40%;
+}
+
+
+@media  only screen and (max-width: 600px) {
+    .main{
+        flex-direction: column;
+        /* padding-top: 20rem; */
+        padding-top: 0;
+    }
+
+    .main .maincont{
+        width: 100%;
+    }
+
+    .main .mainright{
+        display: none;
+    }
+
+    .mainleft .mainhead{
+        width: 90%;
+        margin-top: 2rem;
+    }
+}
