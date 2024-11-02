@@ -110,22 +110,29 @@
       padding: 15px 20px;
       color: white;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: #2f1548fc;
-      transition: 0.2s ease;
+      /* background-color: #2f1548fc; */
+      transition: 0.8s ease;
       z-index: 100;
     }
   
-    .logoactive {
-      display: block;
+    .navlogo.logoactive {
+      background-color: #2f1548fc;
+      /* display: block; */
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navlogo.logoactive2{
+      background-color: #2f1548fc;
+      justify-content: center;
+      align-items: center;
     }
   
     /* Hamburger Icon */
     .ham {
       display: block;
       position: fixed;
-      top: 1.5%;
+      top: 3.2%;
       right: 3%;
       z-index: 1000;
     }

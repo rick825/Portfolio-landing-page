@@ -30,7 +30,7 @@ const Header = () => {
     navLinks.classList.toggle('navactive');
     backblack.classList.toggle('navactive');
     contact.classList.toggle('navactive');
-    logo.classList.toggle('logoactive2');
+    logo.classList.toggle('logoactive');
     navbar.classList.toggle('navbaractive');
   }
 
