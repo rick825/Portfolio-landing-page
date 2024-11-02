@@ -22,7 +22,7 @@
 }
 
 .mainleft .mainhead h1{
-  font-size: 5rem;
+  font-size: 5.5rem;
   letter-spacing: 2px;
 }
 
@@ -32,6 +32,20 @@
     line-height: 2.6rem;
 }
 
+.mainlist {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+  
+  .mainlist li {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    color: #fff;
+  }
+  
+
 .mainbtn{
     display: flex;
     gap: 1rem;
@@ -39,7 +53,7 @@
 
 .mainbtn .btn{
     padding: 1.02rem 3rem;
-    margin-top: 2.5rem;
+    margin-top: 3rem;
     border-radius: 6px;
     border: none;
     font-size: 1.4rem;
