@@ -11,19 +11,30 @@ const Header = () => {
     }
 
     const logo = document.querySelector('.navlogo');
-    if(window.scrollY > 400){
+    if(window.scrollY > 100){
        logo.classList.add('logoactive');
     }else{
       logo.classList.remove('logoactive');
     }
   };
 
+  const handleNavigation = () =>{
+    const navLinks = document.querySelector('.nav-links');
+    const backblack = document.querySelector('.backblack');
+    const contact = document.querySelector('.contact');
+
+    navLinks.classList.toggle('navactive');
+    backblack.classList.toggle('navactive');
+    contact.classList.toggle('navactive');
+
+  }
+
   return (
     <div className='header'>
       <div className="backblack"></div>
          <nav className="navbar">
           
-          <div className="ham">
+          <div className="ham" onClick={handleNavigation}>
           <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAVUlEQVR4nO3WsQkAMAwDQY2evV04YxjEHXwfk0YJABdm5jWUmdmGcv0Ah0zxj7yGAgDEjN/rbTXNo3EbStMhr6EAADHj93pbTfNo3IbSdMhrKADkwAfNVkOwdaBILgAAAABJRU5ErkJggg==" alt="menu--v1" /> 
           </div>
           <div className="navlogo">
