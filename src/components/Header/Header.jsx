@@ -22,10 +22,12 @@ const Header = () => {
     const navLinks = document.querySelector('.nav-links');
     const backblack = document.querySelector('.backblack');
     const contact = document.querySelector('.contact');
+    const logo = document.querySelector('.navlogo');
 
     navLinks.classList.toggle('navactive');
     backblack.classList.toggle('navactive');
     contact.classList.toggle('navactive');
+    logo.classList.toggle('logoactive2');
 
   }
 
@@ -54,7 +56,7 @@ const Header = () => {
           </div>
           <div className="contact2 cont">
           <img alt='' src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACfUlEQVR4nO2ZO2tUURRGjxpfEQvxEfBVWfgHoikUAloEURBiIRG0UtDOzj8giGhrLfgoQqKFoghiFdSQwqQJqCh2iopGjczM+i5+cskIyZCEuXdyZ45hFuxuirtm73POPvuE0KbN8sb2zkqlchYYlDQO/AQ+AJdsrw4xY3ulpMPAA+CPJC8Qz21vC7Fhe0WSJCclvVvk410Tk7a7QiwAPZJGMwh4Vozb3thSAdvrJF0BkpwSTgN4bLujJRJAt6TXjQhoblxvhcR5oLyEEq5uDH1NEbDdCdxaSgHNjZFmSHQ1sKBdZ1amCpUolUp7JL0pUkIz8bIwCeAg8K1oCWAK2F+IhKRe4FcTJB7Z3lWUxBGgVLDAd+BcIQJViX6gUrDEUKHtiaSjWSWAj2mfBQzX8dtPkk4UJlCVOJSjnEZsb6/pu14sIDFoe0uhEsABYDpjJoZtr52vlU+S5IykMeC3pFeSjoWiKZfLe7NuscDtljV685GmWtLbjOV0I/3XQyzY7szRdlwOsQHcXA4SF7KWU4gNoDvLfQK4G9WamHU9ncwg8cT2mhAbkq5lKKcx2+tDbAA99Q4KgM+2d4cY507KsNUmSTIQYiRJkoGMJ/e9EBu2OyS9z7jdptEbYkJSfw6Jf1PAVSEWgGc5RdK1cjrEMtpn8al46yYbWUjfJxqQSBf9dIgBZh5ZcotImggxIGmiQZHjIQaAHw2U1Z0QC8p3fqQSX2xvDbEAXMyZkWJHNnlOdeBpxmwMhRixvSk9peuU+BrVA2Uttjen94s6TvJTIXZsbwDuL5KNh+F/wTMP+ldr25Z0Mm57R/jfkNSXzmirQ4hRYF+rv6lNm9Ac/gJ1sC6iwN5RxAAAAABJRU5ErkJggg==" />
-          <a href>+91 9697992798</a>
+          <a href>+91 9693195907</a>
           </div>
          
         </div>
