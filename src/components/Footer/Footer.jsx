@@ -55,7 +55,7 @@ const Footer = () => {
           <a href="#portfolio" className="footer-link">Portfolio</a>
           <a href="#contact" className="footer-link">Contact</a>
         </div>
-        <p className="footer-copy">© {new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+        <p className="footer-copy">© {new Date().getFullYear()}Thesky.web. All rights reserved.</p>
       </div>
     </footer>
   );
