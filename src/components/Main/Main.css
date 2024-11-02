@@ -1,8 +1,7 @@
-
 .main{
     display: flex;
-    /* margin-top: 10rem; */
     padding-top: 10rem;
+    /* padding-top: 20rem; */
 }
 
 .main .maincont{
@@ -88,12 +87,66 @@
   left: 40%;
 }
 
+.main .features {
+    display: flex;
+    /* justify-content: space-around; */
+    margin-top: 5rem;
+    gap:2rem;
+    /* margin-left: -0.1rem; */
+  }
+  
+  .main .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .main .feature .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /* background-color: #2f1548fc; */
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: black;
+  }
+
+  .main .feature .icon img{
+    width: 40px;
+    height: 40px;
+  }
+
+  
+  /* Specific Icon Styles */
+  .icon1::before {
+    content: "\1F4BB"; /* Laptop emoji for Responsive Design */
+  }
+  
+  .icon2::before {
+    content: "\1F4CA"; /* Bar chart emoji for SEO Optimization */
+  }
+  
+  .icon3::before {
+    content: "\1F6D2"; /* Shopping cart emoji for E-commerce Development */
+  }
+  
+  .main .feature p {
+    font-size: 1.25rem;
+    line-height: 1.8rem;
+    margin-top: 1rem;
+  }
+  
+
 
 @media  only screen and (max-width: 600px) {
     .main{
         flex-direction: column;
-        /* padding-top: 20rem; */
-        padding-top: 0;
+        padding-top: 5rem;
     }
 
     .main .maincont{

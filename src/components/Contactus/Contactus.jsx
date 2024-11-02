@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
+import { db } from '../../firebase/firebaseConfig';
+import { collection, addDoc } from 'firebase/firestore';
 import './Contactus.css';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Contactus = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +13,8 @@ const Contactus = () => {
     message: '',
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -17,12 +23,22 @@ const Contactus = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission logic here, e.g., sending data to an API or Firebase
-    console.log('Form submitted:', formData);
-    // Reset form fields after submission
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+
+    try {
+      const contactsCollection = collection(db, 'contacts');
+      await addDoc(contactsCollection, formData);
+      toast.success("Message Sent Successfully!");
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error adding document: ', error.message);
+      toast.error('Error sending message: ' + error.message);
+      toast.error('Error sending message');
+    } finally{
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -65,8 +81,11 @@ const Contactus = () => {
           required
           className="contact-textarea"
         />
-        <button type="submit" className="contact-button">Send Message</button>
+        <button type="submit" className="contact-button" disabled={isSubmitting}>
+          {isSubmitting ? 'Sending...' : 'Send Message'}
+        </button>
       </form>
+      <ToastContainer />
     </div>
   );
 };

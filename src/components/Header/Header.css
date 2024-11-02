@@ -36,6 +36,19 @@
    font-size: 1.54rem;
   }
 
+  .nav-links li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .nav-links li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 10px;
+  }
+
   .nav-links a{
     color: white;
   }
@@ -64,98 +77,121 @@
  
 
   @media only screen and (max-width: 750px) {
-   
 
-    .navbar{
+    /* Navbar */
+    .navbar {
       flex-direction: column;
       align-items: center;
-      text-align: center;
       padding: 0;
-
+      top: -100%;
+      transition: 0.5s ease-in-out;
+    }
+  
+    .navbaractive {
+      top: 0;
+      background-color: #2f1548fc;
+      padding: 20px;
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
     .navbar.active{
-      padding: 20px 120px;
-      background-color: transparent;
+      padding: 40px 10px;
     }
-
-    
-    .navlogo{
-      
+  
+    /* Logo */
+    .navlogo {
       width: 100%;
-      top:0%;
-      left: 0%;
       position: fixed;
-      font-size:1.6rem;
-      letter-spacing: 2px;
-      padding: 15px 25px;
+      top: 0;
+      left: 0;
+      font-size: 1.8rem;
+      letter-spacing: 1.5px;
+      padding: 15px 20px;
+      color: white;
       display: flex;
-      transition: 0.2s ease;
-      /* background-color: #7606d8; */
-    }
-
-
-    .navlogo.logoactive{
+      justify-content: center;
+      align-items: center;
       background-color: #2f1548fc;
+      transition: 0.2s ease;
+      z-index: 100;
+    }
+  
+    .logoactive {
       display: block;
     }
-
-    .navlogo.logoactive2{
-      display: block;
-
-    }
-
-    .ham{
+  
+    /* Hamburger Icon */
+    .ham {
       display: block;
       position: fixed;
-      top:2.4%;
-      right:3%;
+      top: 1.5%;
+      right: 3%;
       z-index: 1000;
     }
-
-    .ham img{
-      width: 30px;
-
+  
+    .ham img {
+      width: 26px;
+      cursor: pointer;
     }
-
-   
-    .nav-links{
+  
+    /* Navigation Links */
+    .nav-links {
+      display: flex;
       flex-direction: column;
-      font-size: 3rem;
-      transform: translateX(100rem);
-      transition: 0.2s ease;
-      margin-top: 10rem;
+      font-size: 1.6rem;
+      gap: 2rem;
+      margin-top: 8rem;
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: 0.4s ease;
     }
-
-    .backblack{
+  
+    .navactive {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  
+    /* Background Overlay */
+    .backblack {
       width: 100%;
       height: 100%;
-      /* background-color: rgba(0, 0, 0, 0.882); */
-      background-color: #2f1548fc;
+      /* background-color: rgba(47, 21, 72, 0.95); */
       position: fixed;
-      top:0;
-      right:0;
-      left:0;
+      top: 0;
+      right: 0;
+      left: 0;
       bottom: 0;
-      z-index: 100;
-      transform: translateX(-100rem);
-      transition: 0.2s ease;
+      z-index: 99;
+      opacity: 0;
+      
+      transition: opacity 0.4s ease;
+      display: none;
     }
-
-    .contact{
-      flex-direction: column;
-      margin-top: 8rem;
-      font-size: 2rem;
-      gap: 3rem;
-      transform: translateX(100rem);
-      transition: 0.2s ease;
+  
+    .backblack.navactive {
+      opacity: 1;
     }
-
+  
+    /* Contact Section */
+    .contact {
+      /* flex-direction: column; */
+      align-items: center;
+      margin-top: 3rem;
+      font-size: 1.2rem;
+      gap: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: 0.4s ease;
+    }
+  
     .navactive{
-      transform: translateX(0rem);
+      opacity: 1;
+      transform: translateY(0);
     }
-
-    .cont img{
-      width: 30px;
+  
+    .cont img {
+      width: 22px;
     }
   }
+  
