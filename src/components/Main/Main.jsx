@@ -18,8 +18,8 @@ const Main = () => {
             <li>Let us handle everything—from design to launch.</li>
             </ul>
             <div className="mainbtn">
-                <button className="btn btn-primary">Get Started</button>
-                <button className="btn btn-secondary">Learn More  →</button>
+               <a href="#services"><button className="btn btn-primary">Our Services</button></a>
+                <a href="#about"> <button className="btn btn-secondary">About Us →</button></a>
             </div>
         </div>
       </div>

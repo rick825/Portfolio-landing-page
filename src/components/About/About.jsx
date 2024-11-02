@@ -1,10 +1,35 @@
-import React from 'react';
+import React,{useRef,useEffect} from 'react';
 import './About.css';
 import { FaLaptopCode, FaHandsHelping, FaBullseye } from 'react-icons/fa';
 
 const About = () => {
+
+  const aboutref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry, index) => {
+          if (entry.isIntersecting) {
+            // Adding a delay based on index for staggered effect
+            entry.target.style.transitionDelay = `${index * 0.1}s`;
+            entry.target.classList.add('animate');
+          }
+        });
+      },
+      { threshold: 0.2 } // Adjust threshold as needed
+    );
+  
+    const serviceCards = document.querySelectorAll('.about-card');
+    serviceCards.forEach(card => observer.observe(card));
+  
+    return () => {
+      serviceCards.forEach(card => observer.unobserve(card));
+    };
+  }, []);
+
   return (
-    <div className="about" id='about'>
+    <div className="about" id='about' ref={aboutref}>
       <h2 className="about-title">About Us</h2>
       <p className="about-intro">
         We are a passionate team of web developers dedicated to bringing your ideas to life. With a focus on modern technologies and user-centered design, we craft websites that not only look great but perform flawlessly.

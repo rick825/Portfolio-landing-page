@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useRef,useEffect} from 'react';
 import './Testimonial.css'; 
 import portfolio from '../../assets/img/portfolio/ecommerce.png'
 import travel from '../../assets/img/portfolio/travel.png'
@@ -29,12 +29,37 @@ const testimonials = [
 ];
 
 const Testimonial = () => {
+
+    const testimonialref = useRef(null);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              // Adding a delay based on index for staggered effect
+              entry.target.style.transitionDelay = `${index * 0.1}s`;
+              entry.target.classList.add('animate');
+            }
+          });
+        },
+        { threshold: 0.2 } // Adjust threshold as needed
+      );
+    
+      const serviceCards = document.querySelectorAll('.testimonial-card');
+      serviceCards.forEach(card => observer.observe(card));
+    
+      return () => {
+        serviceCards.forEach(card => observer.unobserve(card));
+      };
+    }, []);
+
   return (
     <div className="testimonial-section" id='testimonials'>
       <h2 className="testimonial-title">What Our Clients Say</h2>
       <div className="testimonial-cards">
         {testimonials.map(testimonial => (
-          <div key={testimonial.id} className="testimonial-card">
+          <div key={testimonial.id} className="testimonial-card" ref={testimonialref}>
             <div className="testimonial-image-container">
               <img src={testimonial.image} alt={testimonial.name} className="testimonial-image" />
             </div>

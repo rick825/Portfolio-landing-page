@@ -37,7 +37,15 @@
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    transition: transform 0.3s;
+    /* transition: transform 0.3s; */
+    transform: translateY(20rem); /* Start position */
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    opacity: 0; 
+  }
+
+  .service-card.animate {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   .service-card:hover {

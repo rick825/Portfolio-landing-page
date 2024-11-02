@@ -1,8 +1,33 @@
-import React from 'react';
+import React,{useRef,useEffect} from 'react';
 import { FaMobileAlt, FaBolt, FaSearch, FaHeadset } from 'react-icons/fa';
 import './Feature.css';
 
 const Feature = () => {
+
+    const featureref = useRef(null);
+
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              // Adding a delay based on index for staggered effect
+              entry.target.style.transitionDelay = `${index * 0.1}s`;
+              entry.target.classList.add('animate');
+            }
+          });
+        },
+        { threshold: 0.2 } // Adjust threshold as needed
+      );
+    
+      const serviceCards = document.querySelectorAll('.feature-card');
+      serviceCards.forEach(card => observer.observe(card));
+    
+      return () => {
+        serviceCards.forEach(card => observer.unobserve(card));
+      };
+    }, []);
+
   const features = [
     {
       id: 1,
@@ -31,7 +56,7 @@ const Feature = () => {
   ];
 
   return (
-    <div className="feature-page">
+    <div className="feature-page" ref={featureref}>
       <h2 className="feature-title">Our Features</h2>
       <p className="feature-intro">Discover what makes our services unique and beneficial for your business.</p>
       
