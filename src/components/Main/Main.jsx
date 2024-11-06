@@ -19,7 +19,7 @@ const Main = () => {
           </ul>
           <div className="mainbtn">
             <a href="#about"><button className="btn btn-primary">About Us</button></a>
-            <a href="https://wa.me/+917438049679?text=Hello" target="_blank" rel="noopener noreferrer"><button className="btn btn-secondary">Contact Us →</button></a>
+            <a href="https://wa.me/+917438049679?text=I want to make a Website for my businesss" target="_blank" rel="noopener noreferrer"><button className="btn btn-secondary">Contact Us →</button></a>
           </div>
 
           {/* Features Section with React Icons */}
