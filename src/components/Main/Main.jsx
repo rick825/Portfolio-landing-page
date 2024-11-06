@@ -18,8 +18,8 @@ const Main = () => {
             <li>Let us handle everything—from design to launch.</li>
           </ul>
           <div className="mainbtn">
-            <a href="#services"><button className="btn btn-primary">Our Services</button></a>
-            <a href="#about"><button className="btn btn-secondary">About Us →</button></a>
+            <a href="#about"><button className="btn btn-primary">About Us</button></a>
+            <a href="https://wa.me/+917438049679?text=Hello" target="_blank" rel="noopener noreferrer"><button className="btn btn-secondary">Contact Us →</button></a>
           </div>
 
           {/* Features Section with React Icons */}
